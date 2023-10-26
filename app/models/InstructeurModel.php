@@ -18,6 +18,7 @@ class InstructeurModel
                         ,Mobiel
                         ,DatumInDienst
                         ,AantalSterren
+                        ,isActief
                     FROM Instructeur
                     ORDER BY AantalSterren DESC;";
 

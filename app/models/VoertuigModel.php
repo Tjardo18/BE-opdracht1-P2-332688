@@ -19,6 +19,7 @@ class VoertuigModel
                     ,Voertuig.Kenteken
                     ,Voertuig.Bouwjaar
                     ,Voertuig.Brandstof
+                    ,VoertuigInstructeur.isActief
                     ,TypeVoertuig.Rijbewijscategorie
         FROM VoertuigInstructeur
         INNER JOIN Voertuig ON Voertuig.Id = VoertuigInstructeur.VoertuigId
