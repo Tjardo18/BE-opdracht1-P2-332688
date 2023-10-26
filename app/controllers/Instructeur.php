@@ -16,6 +16,11 @@ class Instructeur extends BaseController
 
         $rows = "";
         foreach ($result as $instructeur) {
+
+            $statusIcon = ($instructeur->isActief == 1) ?
+                "<i class='fa-solid fa-thumbs-up' style='color: #00ff00;'></i>" :
+                "<i class='bx bxs-band-aid' style='color:#e0b19a'></i>";
+
             $rows .= "<tr>
                         <td>$instructeur->Voornaam</td>
                         <td>$instructeur->Tussenvoegsel</td>
@@ -26,6 +31,11 @@ class Instructeur extends BaseController
                         <td>
                             <a href='voertuig/id/{$instructeur->Id}'>
                                 <i class='bx bxs-car' style='color:#29fd53'></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href='../../wijzigen/id/{$instructeur->Id}'>
+                                $statusIcon
                             </a>
                         </td>
                       </tr>";

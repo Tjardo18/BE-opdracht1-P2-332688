@@ -25,11 +25,16 @@ class Voertuig extends BaseController
             <th>Brandstof</th>
             <th>Rijbewijscategorie</th>
             <th>Wijzigen</th>
-            <th>Verwijderen</th>";
+            <th>Verwijderen</th>
+            <th>Toegewezen</th>";
 
             $result = $this->voertuigModel->getVoertuigen($id);
             $rows = "";
             foreach ($result as $voertuig) {
+                $statusIcon = ($voertuig->isActief == 1) ?
+                "<i class='bx bx-check' style='color:#29fd53'></i>" :
+                "<i class='bx bx-x' style='color:#ff0000'></i>";
+
                 $voertuigen = $voertuig->VoertuigID;
                 $instructeurId = $voertuig->InstructeurID;
                 $rows .= "<tr>
@@ -47,6 +52,11 @@ class Voertuig extends BaseController
                 <td>
                     <a href='../../delete/id/$voertuigen?voertuig=$voertuigen&instructeur=$instructeurId&case=1'>
                         <i class='bx bxs-trash' style='color:#ff0000'></i>
+                    </a>
+                </td>
+                <td>
+                    <a href='../../toewijzen/id/{$voertuig->VoertuigID}'>
+                        $statusIcon
                     </a>
                 </td>
                 </tr>";
