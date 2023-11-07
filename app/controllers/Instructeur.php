@@ -34,7 +34,7 @@ class Instructeur extends BaseController
                             </a>
                         </td>
                         <td>
-                            <a href='../../wijzigen/id/{$instructeur->Id}'>
+                            <a href='ziekteverlof/id/{$instructeur->Id}'>
                                 $statusIcon
                             </a>
                         </td>

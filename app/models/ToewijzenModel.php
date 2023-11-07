@@ -22,7 +22,7 @@ class ToewijzenModel
         FROM Voertuig
         LEFT JOIN VoertuigInstructeur ON Voertuig.Id = VoertuigInstructeur.VoertuigId
         INNER JOIN TypeVoertuig ON TypeVoertuig.Id = Voertuig.TypeVoertuigId
-        WHERE VoertuigInstructeur.VoertuigId IS NULL
+        WHERE VoertuigInstructeur.VoertuigId IS NULL || VoertuigInstructeur.IsActief = 0
         ORDER BY TypeVoertuig.Rijbewijscategorie;";
 
         $this->db->query($sql);

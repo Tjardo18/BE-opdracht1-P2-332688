@@ -28,7 +28,7 @@ class AlleVoertuigenModel
                 JOIN TypeVoertuig TV ON V.TypeVoertuigId = TV.Id
                 LEFT JOIN VoertuigInstructeur VI ON V.Id = VI.VoertuigId
                 LEFT JOIN Instructeur I ON VI.InstructeurId = I.Id
-                WHERE VI.InstructeurId IS NOT NULL OR VI.InstructeurId IS NULL
+                WHERE VI.InstructeurId IS NOT NULL || VI.InstructeurId IS NULL
                 ORDER BY V.Bouwjaar DESC, I.Achternaam ASC;";
 
         $this->db->query($sql);
