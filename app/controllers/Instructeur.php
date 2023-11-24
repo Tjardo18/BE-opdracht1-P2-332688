@@ -18,7 +18,7 @@ class Instructeur extends BaseController
         foreach ($result as $instructeur) {
 
             $statusIcon = ($instructeur->isActief == 1) ?
-                "<i class='fa-solid fa-thumbs-up' style='color: #00ff00;'></i>" :
+                "<i class='fa-solid fa-thumbs-up' style='color: #29fd53;'></i>" :
                 "<i class='bx bxs-band-aid' style='color:#e0b19a'></i>";
 
             $rows .= "<tr>
