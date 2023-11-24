@@ -13,12 +13,18 @@ class ZiekteVerlof extends BaseController
     {
         $this->ziekteVerlofModel->wijzigen($instructeurId);
         $this->ziekteVerlofModel->voertuig($instructeurId);
-        // $result = $this->ziekteVerlofModel->instructeur($instructeurId);
-        
+        $status = $this->ziekteVerlofModel->checkInstucteur($instructeurId)['IsActief'];
+
         header("refresh:3;url=../../instructeur");
 
+        if ($status == 1) {
+            $newStatus = 'Instructeur is beter/terug van verlof gemeld';
+        } else {
+            $newStatus = 'Instructeur is ziek/met verlof gemeld';
+        }
+
         $data = [
-            'title' => 'Instructeur is ziek/met verlof gemeld'
+            'title' => $newStatus
         ];
 
         $this->view('ziekteverlof/ziekteverlof', $data);

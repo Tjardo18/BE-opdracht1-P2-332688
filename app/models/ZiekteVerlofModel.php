@@ -9,6 +9,7 @@ class ZiekteVerlofModel
         $this->db = new Database();
     }
 
+
     public function wijzigen($InstructeurId)
     {
         $sql = "UPDATE Instructeur
@@ -27,18 +28,13 @@ class ZiekteVerlofModel
 
         $this->db->query($sql);
         return $this->db->execute();
-
     }
 
-    // public function instructeur($InstructeurId)
-    // {
-    //     $sql = "SELECT Voornaam, Tussenvoegsel, Achternaam
-    //     FROM Instructeur
-    //     WHERE Id = $InstructeurId;";
+    public function checkInstucteur($InstructeurId)
+    {
+        $sql = "SELECT IsActief FROM Instructeur WHERE Id = $InstructeurId;";
 
-    //     $this->db->query($sql);
-
-    //     return $this->db->execute();
-
-    // }
+        $this->db->query($sql);
+        return $this->db->resultSetAssoc();
+    }
 }
